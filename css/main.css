@@ -1,0 +1,38 @@
+* {
+    font-family: "Arial", sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background: #03030a;
+    color: white;
+    margin: 0;
+}
+
+.screen-background {
+    position: fixed;
+    inset: 0 0 0 0;
+    background: linear-gradient(#03030a, #06061c);
+    z-index: -1;
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    min-height: 100vh;
+}
+.content main {
+    flex: 0 1 800px;
+    background: #1616337f;
+    border-inline: 1px solid #38384d;
+    padding: 30px;
+}
+
+a {
+    color: #7aaaff;
+}
+
+.post-header h1 {
+    margin-block-end: .25em;
+}
