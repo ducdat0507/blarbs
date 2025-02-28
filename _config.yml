@@ -27,7 +27,6 @@ url: "ducdat0507.github.io/blarbs"
 theme: null
 future: true
 plugins:
-  - jekyll-toc
   - jekyll-feed
 
 toc:
