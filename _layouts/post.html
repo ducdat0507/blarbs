@@ -2,14 +2,32 @@
 layout: base
 ---
 
-<a href="https://ducdat0507.github.io">Back to home page</a>&nbsp;&nbsp;&nbsp;
-<a href="https://ducdat0507.github.io/blarbs">Back to blarbs</a>
-
-<hgroup class="post-header">
-    <h1>{{page.title}}</h1>
-    <i>Published {{ page.date | date: "%-d-%m-%Y" }}</i>
-</hgroup>
-
-<br>
-
-{{content}}
+<aside id="#navigation">
+    <div class="nav-backs mobile-only">
+        <a id="to-main" href="#main" class="button"><b>continue reading</b><br/>(you can swipe to the left)</a>
+    </div>
+    <div class="nav-backs">
+        <a class="button" href="/blarbs/"><b>back to all blarbs</b></a>    
+        <a class="button" href="//ducdat0507.github.io/?main">back to home page</a>
+    </div>
+    <div>
+        <h2 class="title-box">in this blarb</h2>
+        <ul id="toc">
+            <script src="{{ "/js/toc.js" | relative_url }}"></script>
+        </ul> 
+    </div>
+</aside>
+<main id="main">
+    <h1 class="not-box">{{page.title}}</h1>
+    <div class="not-box mobile-only" style="text-align: right;">
+        <a id="to-nav" href="#navigation" class="button"><b>navigation</b><br/>(you can swipe to the right)</a>
+    </div>
+    <div class="box">
+        <p><i>
+            published on <time><b>{{ page.date | date: "%A, %d %B %Y" }}</b></time>
+        </i></p>
+    </div>
+    <div class="box" id="blarb-content">
+        {{content}}
+    </div>
+</main>

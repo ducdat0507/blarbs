@@ -1,5 +1,6 @@
 * {
-    font-family: "Arial", sans-serif;
+    font-family: "Arial", "Helvetica", "FreeSans", sans-serif;
+    line-height: 1.3;
     box-sizing: border-box;
 }
 
@@ -12,27 +13,200 @@ body {
 .screen-background {
     position: fixed;
     inset: 0 0 0 0;
-    background: linear-gradient(#03030a, #06061c);
+    background: linear-gradient(#000039, #1f0085);
     z-index: -1;
 }
 
 .content {
+    position: fixed;
+    inset: 0;
     display: flex;
-    justify-content: center;
     align-items: stretch;
-    min-height: 100vh;
+    justify-content: center;
+    gap: 10px;
 }
-.content main {
-    flex: 0 1 800px;
-    background: #1616337f;
-    border-inline: 1px solid #38384d;
-    padding: 30px;
+.content > * {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-block: 50px;
+    overflow: hidden auto;
+}
+.content > main {
+    width: 720px;
+    padding-inline: 20px;
+}
+.content > aside {
+    width: 240px;
+    flex-shrink: 0;
+    padding-inline: 20px;
+}
+.content .box {
+    display: block;
+    background: black;
+    border: 2px solid white;
+    margin-top: 0px;
+    padding: 10px;
 }
 
-a {
-    color: #7aaaff;
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
 }
 
-.post-header h1 {
-    margin-block-end: .25em;
+button, .button {
+    --hover-from: 2px;
+    --hover-to: 1px;
+    display: inline-block;
+    border: 2px solid white;
+    font: inherit;
+    background: #ccf;
+    color: black;
+    padding: 7px;
+    cursor: pointer;
+    text-decoration: none;
+}
+:is(button, .button):hover {
+    animation: .1s steps(1) poppy-button;
+    transform: translateY(calc(var(--hover-to) * -1));
+    box-shadow: 0 var(--hover-to) #88c;
+}
+:is(button, .button):active {
+    transform: none;
+    box-shadow: none;
+    background: #88c;
+}
+@keyframes poppy-button {
+    from {
+        background: #d3d3ff;
+        transform: translateY(calc(var(--hover-from) * -1));
+        box-shadow: 0 var(--hover-from) #88c;
+    } to {
+        background: #ccf;
+        transform: translateY(calc(var(--hover-to) * -1));
+        box-shadow: 0 var(--hover-to) #88c;
+    }
+}
+
+.blarb-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.blarb-card {
+    --hover-from: 3px;
+    --hover-to: 2px;
+    display: block;
+    padding: 4px 7px;
+}
+.blarb-card hgroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    border-bottom: 2px solid currentColor;
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+}
+.blarb-card h2 {
+    font-size: 1.2em;
+}
+.blarb-card p {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.nav-backs {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    gap: 2px;
+}
+.nav-backs > a.button {
+    padding: 4px 7px;
+}
+
+
+.box.blarb-times {
+    margin-top: 10px;
+}
+#blarb-content p:not(:first-child) {
+    margin-top: 5px;
+}
+#blarb-content :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
+    margin-top: 10px;
+}
+
+#toc, #toc ul {
+    display: flex;
+    flex-direction: column;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    gap: 2px;
+}
+#toc ul {
+    margin-top: 2px;
+    padding-inline-start: 2px;
+    border-inline-start: 2px solid white;
+}
+#toc a {
+    padding: 4px 7px;
+}
+.title-box {
+    display: inline-block;
+    font-size: 1em;
+    margin-bottom: 2px;
+    padding: 4px 7px;
+    background: black;
+    border: 2px solid white;
+}
+
+@media (min-width: 801px) {
+    .mobile-only {
+        display: none;
+    }
+}
+@media (max-width: 800px) {
+    .content {
+        overflow-x: scroll;
+        scrollbar-width: none;
+        justify-content: start;
+        scroll-snap-type: x mandatory;
+    }
+    .content::-webkit-scrollbar {
+        display: none;
+    }
+
+    .content > main {
+        width: calc(100vw + 2px);
+        flex: 0 0 calc(100vw + 2px);
+        scroll-snap-align: end;
+        padding-inline: 0;
+    }
+    .content > main .box {
+        width: 100%;
+        border-right: none;
+    }
+    .content > main .not-box {
+        padding-inline: 12px 10px;
+    }
+    .content > main.index {
+        width: 100vw;
+        flex: 0 0 100vw;
+    }
+    .content > main.index .box {
+        width: 100%;
+        border-left: none;
+    }
+    .content > main.index .not-box {
+        padding-inline: 10px;
+    }
+    .content > aside {
+        width: calc(100vw - 50px);
+        flex: 0 0 calc(100vw - 50px);
+        scroll-snap-align: start;
+    }
 }
