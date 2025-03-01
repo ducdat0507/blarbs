@@ -3,12 +3,21 @@ layout: base
 ---
 
 <aside id="#navigation">
-    <div class="nav-backs mobile-only">
-        <a id="to-main" href="#main" class="button"><b>continue reading</b><br/>(you can swipe to the left)</a>
+    <div class="to-button mobile-only">
+        <a id="to-main" href="#main" class="button">
+            <iconify-icon icon="tabler:play" inline></iconify-icon>
+            <b>continue reading</b>
+        </a>
     </div>
     <div class="nav-backs">
-        <a class="button" href="/blarbs/"><b>back to all blarbs</b></a>    
-        <a class="button" href="//ducdat0507.github.io/?main">back to home page</a>
+        <a class="button" href="/blarbs/">
+            <iconify-icon icon="tabler:arrow-left" inline></iconify-icon>
+            <b>back to all blarbs</b>
+        </a>    
+        <a class="button" href="//ducdat0507.github.io/?main">
+            <iconify-icon icon="tabler:arrow-left" inline></iconify-icon>
+            back to home page
+        </a>
     </div>
     <div>
         <h2 class="title-box">in this blarb</h2>
@@ -19,8 +28,11 @@ layout: base
 </aside>
 <main id="main">
     <h1 class="not-box">{{page.title}}</h1>
-    <div class="not-box mobile-only" style="text-align: right;">
-        <a id="to-nav" href="#navigation" class="button"><b>navigation</b><br/>(you can swipe to the right)</a>
+    <div class="not-box to-button mobile-only" style="text-align: right;">
+        <a id="to-nav" href="#navigation" class="button">
+            <iconify-icon icon="tabler:menu-2" inline></iconify-icon>
+            <b>navigation</b>
+        </a>
     </div>
     <div class="box">
         <p><i>

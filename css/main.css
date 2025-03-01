@@ -1,13 +1,26 @@
 * {
+    box-sizing: border-box;
+}
+
+body, button {
     font-family: "Arial", "Helvetica", "FreeSans", sans-serif;
     line-height: 1.3;
-    box-sizing: border-box;
 }
 
 body {
     background: #03030a;
     color: white;
     margin: 0;
+}
+
+a {
+    color: #ccf;
+    text-decoration: underline dashed;
+}
+a:hover {
+    color: white;
+    text-shadow: 0 0 4px #ccfc;
+    text-decoration: underline solid;
 }
 
 .screen-background {
@@ -49,7 +62,7 @@ body {
     padding: 10px;
 }
 
-h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p, ul, ol, li {
     margin: 0;
 }
 
@@ -66,6 +79,8 @@ button, .button {
     text-decoration: none;
 }
 :is(button, .button):hover {
+    color: black;
+    text-decoration: none;
     animation: .1s steps(1) poppy-button;
     transform: translateY(calc(var(--hover-to) * -1));
     box-shadow: 0 var(--hover-to) #88c;
@@ -87,6 +102,14 @@ button, .button {
     }
 }
 
+.flex-horiz {
+    display: flex;
+    flex-direction: row;
+}
+.flexible-space {
+    flex: 1;
+}
+
 .blarb-list {
     list-style: none;
     margin: 0;
@@ -105,17 +128,13 @@ button, .button {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
-    border-bottom: 2px solid currentColor;
-    padding-bottom: 1px;
+    align-items: last baseline;
+    border-bottom: 1px solid currentColor;
+    padding-bottom: 3px;
     margin-bottom: 4px;
 }
 .blarb-card h2 {
-    font-size: 1.2em;
-}
-.blarb-card p {
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 1em;
 }
 
 .nav-backs {
@@ -132,11 +151,17 @@ button, .button {
 .box.blarb-times {
     margin-top: 10px;
 }
-#blarb-content p:not(:first-child) {
-    margin-top: 5px;
+#blarb-content {
+    line-height: 1.2;
+}
+#blarb-content :is(p, ul, ol, li):not(:first-child) {
+    margin-top: 8px;
 }
 #blarb-content :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
-    margin-top: 10px;
+    margin-top: 16px;
+}
+#blarb-content :is(picture, video, iframe) {
+    width: 100%;
 }
 
 #toc, #toc ul {
@@ -163,6 +188,15 @@ button, .button {
     background: black;
     border: 2px solid white;
 }
+.to-button {
+    order: 10000;
+    position: sticky;
+    bottom: -30px;
+}
+iconify-icon {
+    width: 1em;
+    height: 1em;
+}
 
 @media (min-width: 801px) {
     .mobile-only {
@@ -183,15 +217,17 @@ button, .button {
     .content > main {
         width: calc(100vw + 2px);
         flex: 0 0 calc(100vw + 2px);
+        gap: 15px;
         scroll-snap-align: end;
         padding-inline: 0;
     }
     .content > main .box {
         width: 100%;
         border-right: none;
+        padding: 20px;
     }
     .content > main .not-box {
-        padding-inline: 12px 10px;
+        padding-inline: 22px 20px;
     }
     .content > main.index {
         width: 100vw;
@@ -202,11 +238,11 @@ button, .button {
         border-left: none;
     }
     .content > main.index .not-box {
-        padding-inline: 10px;
+        padding-inline: 20px;
     }
     .content > aside {
-        width: calc(100vw - 50px);
-        flex: 0 0 calc(100vw - 50px);
+        width: calc(100vw - 70px);
+        flex: 0 0 calc(100vw - 70px);
         scroll-snap-align: start;
     }
 }
