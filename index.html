@@ -24,7 +24,7 @@ layout: base
           <a class="blarb-card button" href=".{{ post.url }}"><article>
             <hgroup>
               <h2>{{ post.title }}</h2>
-              <time class="tnum">{{ post.date | date: "%Y-%m-%d" }}</time>
+              <time style="flex-shrink: 0;">{{ post.date | date: "%Y-%m-%d" }}</time>
             </hgroup>
             <p>
               {% if post.subtitle %}
