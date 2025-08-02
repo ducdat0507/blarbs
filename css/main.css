@@ -49,6 +49,9 @@ a:hover {
     width: 720px;
     padding-inline: 20px;
 }
+.content > main :is(p, li) {
+    line-height: 1.55;
+}
 .content > aside {
     width: 240px;
     flex-shrink: 0;
