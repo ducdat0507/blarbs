@@ -62,7 +62,10 @@ a:hover {
     background: black;
     border: 2px solid white;
     margin-top: 0px;
-    padding: 10px;
+    padding: 20px;
+}
+.content #blarb-content {
+    padding: 40px;
 }
 
 h1, h2, h3, h4, h5, h6, p, ul, ol, li {
@@ -158,10 +161,10 @@ button, .button {
     line-height: 1.2;
 }
 #blarb-content :is(p, ul, ol, li):not(:first-child) {
-    margin-top: 8px;
+    margin-top: 16px;
 }
 #blarb-content :is(h1, h2, h3, h4, h5, h6):not(:first-child) {
-    margin-top: 16px;
+    margin-top: 32px;
 }
 #blarb-content :is(picture, video, iframe) {
     width: 100%;
